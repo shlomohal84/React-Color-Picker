@@ -12,7 +12,7 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        <Palette palette={seedColors[4]} />
+        <Palette {...seedColors[4]} />
       </div>
     );
   }
