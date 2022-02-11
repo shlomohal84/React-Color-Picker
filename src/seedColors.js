@@ -2,6 +2,7 @@ export default [
   {
     paletteName: "Material UI Colors",
     id: "material-ui-colors",
+    isWindowsEmoji: true,
     emoji: "🎨",
     colors: [
       { name: "red", color: "#F44336" },
@@ -28,6 +29,7 @@ export default [
   {
     paletteName: "Flat UI Colors v1",
     id: "flat-ui-colors-v1",
+    isWindowsEmoji: true,
     emoji: "🤙",
     colors: [
       { name: "Turquoise", color: "#1abc9c" },
@@ -55,6 +57,7 @@ export default [
   {
     paletteName: "Flat UI Colors Dutch",
     id: "flat-ui-colors-dutch",
+    isWindowsEmoji: false,
     emoji: "NL",
     colors: [
       { name: "Sunflower", color: "#FFC312" },
@@ -82,6 +85,7 @@ export default [
   {
     paletteName: "Flat UI Colors American",
     id: "flat-ui-colors-american",
+    isWindowsEmoji: false,
     emoji: "US",
     colors: [
       { name: "LightGreenishBlue", color: "#55efc4" },
@@ -109,6 +113,7 @@ export default [
   {
     paletteName: "Flat UI Colors Aussie",
     id: "flat-ui-colors-aussie",
+    isWindowsEmoji: false,
     emoji: "AU",
     colors: [
       { name: "Beekeeper", color: "#f6e58d" },
@@ -136,6 +141,7 @@ export default [
   {
     paletteName: "Flat UI Colors British",
     id: "flat-ui-colors-british",
+    isWindowsEmoji: false,
     emoji: "GB",
     colors: [
       { name: "ProtossPylon", color: "#00a8ff" },
@@ -163,6 +169,7 @@ export default [
   {
     paletteName: "Flat UI Colors Spanish",
     id: "flat-ui-colors-spanish",
+    isWindowsEmoji: false,
     emoji: "ES",
     colors: [
       { name: "JacksonsPurple", color: "#40407a" },
@@ -190,6 +197,7 @@ export default [
   {
     paletteName: "Flat UI Colors Indian",
     id: "flat-ui-colors-indian",
+    isWindowsEmoji: false,
     emoji: "IN",
     colors: [
       { name: "OrchidOrange", color: "#FEA47F" },
@@ -217,6 +225,7 @@ export default [
   {
     paletteName: "Flat UI Colors French",
     id: "flat-ui-colors-french",
+    isWindowsEmoji: false,
     emoji: "FR",
     colors: [
       { name: "FlatFlesh", color: "#fad390" },
