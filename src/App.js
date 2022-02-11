@@ -8,11 +8,10 @@ import Palette from "./components/Palette";
 import "./App.css";
 export default class App extends Component {
   static defaultProps = {
-    seedColors
-  }
+    seedColors,
+  };
 
   render() {
-
     return (
       <div className="App">
         <Palette palette={generatePalette(seedColors[4])} />
