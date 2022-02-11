@@ -10,7 +10,15 @@ export default class App extends Component {
   static defaultProps = {
     seedColors,
   };
-
+  constructor(props) {
+    super(props);
+    this.findPalette = this.findPalette.bind(this);
+  }
+  findPalette(id) {
+    return seedColors.find(function (palette) {
+      return palette.id === id;
+    });
+  }
   render() {
     return (
       <Switch>
@@ -18,7 +26,13 @@ export default class App extends Component {
         <Route
           exact
           path="/palette/:id"
-          render={() => <h1>INDIVIDUAL PALETTE</h1>}
+          render={(routeProps) => (
+            <Palette
+              palette={generatePalette(
+                this.findPalette(routeProps.match.params.id)
+              )}
+            />
+          )}
         />
       </Switch>
       // <div className="App"><
