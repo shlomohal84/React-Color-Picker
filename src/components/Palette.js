@@ -19,8 +19,10 @@ export default class Palette extends Component {
     this.setState({ format: val });
   }
   render() {
-    const { colors, paletteName, emoji } = this.props.palette;
+    const { colors, paletteName, emoji, isWindowsEmoji } = this.props.palette;
     const { level, format } = this.state;
+    console.log(this.props.palette.isWindowsEmoji);
+
     const colorBoxes = colors[level].map((color) => (
       <ColorBox
         key={color.id}
@@ -39,7 +41,11 @@ export default class Palette extends Component {
         <div className="Palette-colors">{colorBoxes}</div>
         <footer className="Palette-footer">
           {paletteName}
-          <span className={`emoji fi fi-${emoji.toLowerCase()}`} />
+          {isWindowsEmoji === true ? (
+            <span className="emoji">{emoji}</span>
+          ) : (
+            <span className={`emoji fi fi-${emoji.toLowerCase()}`}></span>
+          )}
         </footer>
       </div>
     );
