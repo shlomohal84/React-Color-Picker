@@ -41,7 +41,7 @@ export default class Palette extends Component {
         <div className="Palette-colors">{colorBoxes}</div>
         <footer className="Palette-footer">
           {paletteName}
-          {isWindowsEmoji === true ? (
+          {isWindowsEmoji ? (
             <span className="emoji">{emoji}</span>
           ) : (
             <span className={`emoji fi fi-${emoji.toLowerCase()}`}></span>
