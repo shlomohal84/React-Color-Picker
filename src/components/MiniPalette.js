@@ -11,7 +11,7 @@ const styles = {
     overFlow: "hidden",
     border: "1px solid black",
     "&:hover": {
-      crusor: "pointer",
+      cursor: "pointer",
     },
   },
   colors: {
@@ -55,7 +55,7 @@ function MiniPalette(props) {
     />
   ));
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={props.handleClick}>
       <div className={classes.colors}>{miniColorBoxes}</div>
       <h5 className={classes.title}>
         {paletteName}
