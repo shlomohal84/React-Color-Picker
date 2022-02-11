@@ -4,12 +4,10 @@ import { generatePalette } from "./colorsHelpers";
 
 import seedColors from "./seedColors";
 import Palette from "./components/Palette";
+import PaletteList from "./components/PaletteList";
 
 import "./App.css";
 export default class App extends Component {
-  static defaultProps = {
-    seedColors,
-  };
   constructor(props) {
     super(props);
     this.findPalette = this.findPalette.bind(this);
@@ -22,7 +20,11 @@ export default class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" render={() => <h1>PALETTE LIST GOES HERE</h1>} />
+        <Route
+          exact
+          path="/"
+          render={() => <PaletteList palettes={seedColors} />}
+        />
         <Route
           exact
           path="/palette/:id"
