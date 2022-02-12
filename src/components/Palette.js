@@ -3,6 +3,7 @@ import "flag-icons/css/flag-icons.css";
 
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
+import PaletteFooter from "./PaletteFooter";
 
 import "./Palette.css";
 export default class Palette extends Component {
@@ -19,7 +20,7 @@ export default class Palette extends Component {
     this.setState({ format: val });
   }
   render() {
-    const { colors, paletteName, emoji, isWindowsEmoji, id, showLink } =
+    const { colors, paletteName, emoji, isWindowsEmoji, id } =
       this.props.palette;
     const { level, format } = this.state;
 
@@ -39,16 +40,14 @@ export default class Palette extends Component {
           level={level}
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
+          showingAllColors={true}
         />
         <div className="Palette-colors">{colorBoxes}</div>
-        <footer className="Palette-footer">
-          {paletteName}
-          {isWindowsEmoji ? (
-            <span className="emoji">{emoji}</span>
-          ) : (
-            <span className={`emoji fi fi-${emoji.toLowerCase()}`}></span>
-          )}
-        </footer>
+        <PaletteFooter
+          paletteName={paletteName}
+          emoji={emoji}
+          isWindowsEmoji={isWindowsEmoji}
+        />
       </div>
     );
   }
