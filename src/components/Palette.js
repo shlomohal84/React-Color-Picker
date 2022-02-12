@@ -19,7 +19,8 @@ export default class Palette extends Component {
     this.setState({ format: val });
   }
   render() {
-    const { colors, paletteName, emoji, isWindowsEmoji } = this.props.palette;
+    const { colors, paletteName, emoji, isWindowsEmoji, id } =
+      this.props.palette;
     const { level, format } = this.state;
 
     const colorBoxes = colors[level].map((color) => (
@@ -28,6 +29,7 @@ export default class Palette extends Component {
         background={color[format]}
         name={color.name}
         changeLevel={this.changeLevel}
+        moreUrl={`/palette/${id}/${color.id}`}
       />
     ));
     return (
