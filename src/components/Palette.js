@@ -21,7 +21,6 @@ export default class Palette extends Component {
   render() {
     const { colors, paletteName, emoji, isWindowsEmoji } = this.props.palette;
     const { level, format } = this.state;
-    console.log(this.props.palette.isWindowsEmoji);
 
     const colorBoxes = colors[level].map((color) => (
       <ColorBox
