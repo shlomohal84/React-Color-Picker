@@ -19,7 +19,7 @@ export default class Palette extends Component {
     this.setState({ format: val });
   }
   render() {
-    const { colors, paletteName, emoji, isWindowsEmoji, id } =
+    const { colors, paletteName, emoji, isWindowsEmoji, id, showLink } =
       this.props.palette;
     const { level, format } = this.state;
 
@@ -30,6 +30,7 @@ export default class Palette extends Component {
         name={color.name}
         changeLevel={this.changeLevel}
         moreUrl={`/palette/${id}/${color.id}`}
+        showLink={true}
       />
     ));
     return (
