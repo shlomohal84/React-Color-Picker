@@ -8,6 +8,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    overflow: "auto",
   },
   container: {
     width: "50%",
