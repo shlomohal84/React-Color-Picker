@@ -6,7 +6,7 @@ import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
 
 import "./Palette.css";
-export default class Palette extends Component {
+class Palette extends Component {
   constructor(props) {
     super(props);
     this.state = { level: 500, format: "hex" };
@@ -31,7 +31,7 @@ export default class Palette extends Component {
         name={color.name}
         changeLevel={this.changeLevel}
         moreUrl={`/palette/${id}/${color.id}`}
-        showLink={true}
+        showingFullPalette={true}
       />
     ));
     return (
@@ -52,3 +52,5 @@ export default class Palette extends Component {
     );
   }
 }
+
+export default Palette;
