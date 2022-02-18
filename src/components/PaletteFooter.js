@@ -1,16 +1,22 @@
 import React from "react";
 
-export default function PaletteFooter(props) {
-  const { paletteName, emoji, isWindowsEmoji } = props;
+import withStyles from "@material-ui/styles/withStyles";
+import styles from "./styles/PaletteFooterStyles";
 
+function PaletteFooter(props) {
+  const { paletteName, emoji, isWindowsEmoji } = props;
+  const { classes } = props;
   return (
-    <footer className="Palette-footer">
+    <footer className={classes.PaletteFooter}>
       {paletteName}
       {isWindowsEmoji ? (
-        <span className="emoji">{emoji}</span>
+        <span className={classes.emoji}>{emoji}</span>
       ) : (
-        <span className={`emoji fi fi-${emoji.toLowerCase()}`}></span>
+        <span
+          className={`${classes.emoji} fi fi-${emoji.toLowerCase()}`}
+        ></span>
       )}
     </footer>
   );
 }
+export default withStyles(styles)(PaletteFooter);
