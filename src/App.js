@@ -58,9 +58,6 @@ export default class App extends Component {
           )}
         />
       </Switch>
-      // <div className="App"><
-      //     <Palette palette={generatePalette(seedColors[4])} />
-      // </div>
     );
   }
 }
