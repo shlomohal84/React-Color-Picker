@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
 import chroma from "chroma-js";
-
-import "./ColorBox.css";
 import withStyles from "@material-ui/styles/withStyles";
+import "./ColorBox.css";
 
 const styles = {
   ColorBox: {
