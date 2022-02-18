@@ -6,7 +6,7 @@ import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
 
 import styles from "./styles/PaletteStyles";
-import withStyles from "@material-ui/styles/withStyles";
+import { withStyles } from "@material-ui/styles";
 
 class Palette extends Component {
   constructor(props) {
