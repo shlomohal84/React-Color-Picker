@@ -1,4 +1,4 @@
-export default {
+const PaletteListStyles = {
   root: {
     backgroundColor: "blue",
     height: "100vh",
@@ -32,3 +32,4 @@ export default {
     gridGap: "5%",
   },
 };
+export default PaletteListStyles;
