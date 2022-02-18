@@ -19,4 +19,30 @@ export default {
       color: "black",
     },
   },
+  slider: {
+    width: "340px",
+    margin: "0 10px",
+    display: "inline-block",
+    marginBottom: "5px",
+    "& .rc-slider-rail": {
+      height: "8px",
+    },
+    "& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus, .rc-slider-handle:hover":
+      {
+        backgroundColor: "green",
+        outline: "none",
+        border: "2px solid green",
+        boxShadow: "none",
+        width: 13,
+        marginLeft: "-7px",
+        marginTop: "-3px",
+      },
+    "& .rc-slider-track": {
+      backgroundColor: "transparent",
+    },
+  },
+  selectContainer: {
+    marginLeft: "auto",
+    marginRight: "1rem",
+  },
 };
