@@ -13,7 +13,7 @@ function PaletteFooter(props) {
         <span className={classes.emoji}>{emoji}</span>
       ) : (
         <span
-          className={`${classes.emoji} fi fi-${emoji.toLowerCase()}`}
+          className={`${classes.emoji} fi fi-${String(emoji).toLowerCase()}`}
         ></span>
       )}
     </footer>

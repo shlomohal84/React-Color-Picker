@@ -13,6 +13,7 @@ const PaletteListStyles = {
     alignItems: "flex-start",
     flexDirection: "column",
     flexWrap: "wrap",
+    marginTop: "auto",
   },
   nav: {
     display: "flex",

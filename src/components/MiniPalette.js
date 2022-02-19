@@ -22,7 +22,7 @@ function MiniPalette(props) {
           <span className={classes.emoji}>{emoji}</span>
         ) : (
           <span
-            className={`${classes.emoji} fi fi-${props.emoji.toLowerCase()}`}
+            className={`${classes.emoji} fi fi-${String(emoji).toLowerCase()}`}
           ></span>
         )}
       </h5>
