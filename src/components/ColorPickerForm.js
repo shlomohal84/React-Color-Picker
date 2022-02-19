@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import classNames from "classnames";
-import Drawer from "@material-ui/core/Drawer";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { ChromePicker } from "react-color";
 import Button from "@material-ui/core/Button";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { arrayMove } from "react-sortable-hoc";
-import DraggableColorList from "./DraggableColorList";
 
+import withStyles from "@material-ui/styles/withStyles";
+const styles = {};
 class ColorPickerForm extends Component {
   constructor(props) {
     super(props);
@@ -22,12 +16,12 @@ class ColorPickerForm extends Component {
 
   componentDidMount() {
     ValidatorForm.addValidationRule("isColorNameUnique", (value) =>
-      this.state.colors.every(
+      this.props.colors.every(
         ({ name }) => name.toLowerCase() !== value.toLowerCase()
       )
     );
     ValidatorForm.addValidationRule("isColorUnique", (value) =>
-      this.state.colors.every(({ color }) => color !== this.state.currentColor)
+      this.props.colors.every(({ color }) => color !== this.state.currentColor)
     );
   }
 
@@ -44,6 +38,8 @@ class ColorPickerForm extends Component {
       color: this.state.currentColor,
       name: this.state.newColorName,
     };
+
+    this.setState({ newColorName: "" });
     this.props.addNewColor(newColor);
   }
   render() {
@@ -85,4 +81,4 @@ class ColorPickerForm extends Component {
   }
 }
 
-export default ColorPickerForm;
+export default withStyles(styles)(ColorPickerForm);
