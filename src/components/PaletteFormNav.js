@@ -58,6 +58,7 @@ class PaletteFormNav extends Component {
             </Typography>
             <ValidatorForm
               onSubmit={() => this.props.handleSubmit(newPaletteName)}
+              ref="form"
             >
               <TextValidator
                 label="Palette Name"
