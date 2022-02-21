@@ -19,9 +19,6 @@ const drawerWidth = 400;
 const styles = (theme) => ({
   root: {
     display: "flex",
-    "& a": {
-      textDecoration: "none",
-    },
   },
 
   hide: {
