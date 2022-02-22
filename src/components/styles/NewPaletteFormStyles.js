@@ -18,6 +18,7 @@ const styles = (theme) => ({
     alignItems: "center",
   },
   drawerHeader: {
+    width: "100%",
     display: "flex",
     alignItems: "center",
     padding: "0 8px",
@@ -27,7 +28,8 @@ const styles = (theme) => ({
   content: {
     height: "calc(100vh - 64px)",
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
+    // padding: theme.spacing.unit * 3,
+    padding: 0,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
