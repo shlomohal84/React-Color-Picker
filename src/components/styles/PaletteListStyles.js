@@ -3,7 +3,7 @@ const PaletteListStyles = {
     backgroundColor: "blue",
     height: "100vh",
     display: "flex",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
     overflow: "auto",
   },
@@ -13,7 +13,7 @@ const PaletteListStyles = {
     alignItems: "flex-start",
     flexDirection: "column",
     flexWrap: "wrap",
-    marginTop: "auto",
+    marginTop: 0,
   },
   nav: {
     display: "flex",
