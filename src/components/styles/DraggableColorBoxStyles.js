@@ -46,6 +46,10 @@ const styles = {
   deleteIcon: {
     transition: "all 0.3s ease-in-out",
   },
+  colorName: {
+    maxWidth: "80%",
+    overflow: "hidden",
+  },
 };
 
 export default styles;
