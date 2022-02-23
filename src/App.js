@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { generatePalette } from "./colorsHelpers";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -108,6 +108,18 @@ export default class App extends Component {
                         palette={generatePalette(
                           this.findPalette(routeProps.match.params.id)
                         )}
+                      />
+                    </Page>
+                  )}
+                />
+                {/* default/404 route */}
+                <Route
+                  render={(routeProps) => (
+                    <Page>
+                      <PaletteList
+                        palettes={this.state.palettes}
+                        deletePalette={this.deletePalette}
+                        {...routeProps}
                       />
                     </Page>
                   )}
