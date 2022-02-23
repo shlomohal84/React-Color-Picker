@@ -45,7 +45,7 @@ const NavbarStyles = {
     "& .rc-slider-track": {
       backgroundColor: "transparent",
     },
-    [sizes.down("xs")]: {
+    [sizes.down("sm")]: {
       width: "150px",
     },
   },
