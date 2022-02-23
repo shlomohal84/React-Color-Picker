@@ -12,7 +12,7 @@ class MiniPalette extends Component {
   }
   handleDelete(evt) {
     evt.stopPropagation();
-    this.props.deletePalette(this.props.id);
+    this.props.toggleDialog(this.props.id);
   }
   render() {
     const { classes, paletteName, emoji, isWindowsEmoji, colors, handleClick } =
