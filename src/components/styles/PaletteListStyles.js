@@ -1,3 +1,5 @@
+import sizes from "./sizes";
+
 const PaletteListStyles = {
   root: {
     backgroundColor: "blue",
@@ -5,7 +7,6 @@ const PaletteListStyles = {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    overflow: "auto",
   },
   container: {
     width: "50%",
@@ -13,7 +14,12 @@ const PaletteListStyles = {
     alignItems: "flex-start",
     flexDirection: "column",
     flexWrap: "wrap",
-    marginTop: 0,
+    [sizes.down("xl")]: {
+      width: "80%",
+    },
+    [sizes.down("xs")]: {
+      width: "75%",
+    },
   },
   nav: {
     display: "flex",
@@ -30,7 +36,14 @@ const PaletteListStyles = {
     width: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(3,30%)",
-    gridGap: "5%",
+    gridGap: "2.5rem",
+    [sizes.down("md")]: {
+      gridTemplateColumns: "repeat(2,50%)",
+    },
+    [sizes.down("xs")]: {
+      gridTemplateColumns: "repeat(1,100%)",
+      gridGap: "1rem",
+    },
   },
 };
 export default PaletteListStyles;
