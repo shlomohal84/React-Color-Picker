@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+
 import classNames from "classnames";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
@@ -12,7 +14,6 @@ import DraggableColorList from "./DraggableColorList";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 
-import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/NewPaletteFormStyles";
 
 class NewPaletteForm extends Component {
@@ -23,7 +24,6 @@ class NewPaletteForm extends Component {
     super(props);
     this.state = {
       open: true,
-      // colors: [],
       colors: this.props.palettes[0].colors,
     };
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);

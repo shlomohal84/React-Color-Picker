@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
+import { withStyles } from "@material-ui/styles";
 import "flag-icons/css/flag-icons.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import { withStyles } from "@material-ui/styles";
 import styles from "./styles/MiniPaletteStyles";
 
 class MiniPalette extends PureComponent {
@@ -21,8 +21,6 @@ class MiniPalette extends PureComponent {
 
   render() {
     const { classes, paletteName, emoji, isWindowsEmoji, colors } = this.props;
-
-    console.log("RENDERING", paletteName);
 
     const miniColorBoxes = colors.map((color) => (
       <div

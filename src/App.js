@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { generatePalette } from "./colorsHelpers";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import seedColors from "./seedColors";
 
 import Page from "./components/Page";
 import Palette from "./components/Palette";
 import PaletteList from "./components/PaletteList";
 import SingleColorPalette from "./components/SingleColorPalette";
 import NewPaletteForm from "./components/NewPaletteForm";
+
+import seedColors from "./seedColors";
 
 import "./components/styles/Page.css";
 import "./App.css";

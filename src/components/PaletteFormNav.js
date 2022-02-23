@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,7 +12,6 @@ import Button from "@material-ui/core/Button";
 
 import PaletteMetaForm from "./PaletteMetaForm";
 
-import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/PaletteFormNavStyles";
 class PaletteFormNav extends Component {
   constructor(props) {
@@ -20,14 +20,16 @@ class PaletteFormNav extends Component {
       newPaletteName: "",
       formShowing: false,
     };
-    this.showForm = this.showForm.bind(this);
+    this.toggleShowForm = this.toggleShowForm.bind(this);
   }
-  showForm() {
+  toggleShowForm() {
     this.setState({ formShowing: !this.state.formShowing });
   }
 
   render() {
-    const { classes, open, palettes, handleSubmit } = this.props;
+    const { classes, open, palettes, handleSubmit, handleDrawerOpen } =
+      this.props;
+    const { formShowing } = this.state;
 
     return (
       <div className={classes.root}>
@@ -43,7 +45,7 @@ class PaletteFormNav extends Component {
             <IconButton
               color="inherit"
               aria-label="Open drawer"
-              onClick={this.props.handleDrawerOpen}
+              onClick={handleDrawerOpen}
               className={classNames(classes.menuButton, {
                 [classes.hide]: open,
               })}
@@ -59,7 +61,7 @@ class PaletteFormNav extends Component {
               className={classes.button}
               variant="contained"
               color="primary"
-              onClick={this.showForm}
+              onClick={this.toggleShowForm}
             >
               Save
             </Button>
@@ -74,11 +76,11 @@ class PaletteFormNav extends Component {
             </Link>
           </div>
         </AppBar>
-        {this.state.formShowing && (
+        {formShowing && (
           <PaletteMetaForm
             palettes={palettes}
             handleSubmit={handleSubmit}
-            showForm={this.showForm}
+            toggleShowForm={this.toggleShowForm}
           />
         )}
       </div>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -35,7 +34,7 @@ class PaletteMetaForm extends Component {
   };
 
   handleClose = () => {
-    this.setState({ open: false }, this.props.showForm);
+    this.setState({ open: false }, this.props.toggleShowForm);
   };
 
   handleChange(evt) {
@@ -55,16 +54,16 @@ class PaletteMetaForm extends Component {
   }
 
   render() {
-    const { newPaletteName } = this.state;
+    const { newPaletteName, stage } = this.state;
 
     return (
       <div>
-        <Dialog open={this.state.stage === "emoji"} onClose={this.handleClose}>
+        <Dialog open={stage === "emoji"} onClose={this.handleClose}>
           <DialogTitle id="form-dialog-title">Pick a Palette Emoji</DialogTitle>
           <Picker onSelect={this.savePalette} title="Emoji Preview" />
         </Dialog>
         <Dialog
-          open={this.state.stage === "form"}
+          open={stage === "form"}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
