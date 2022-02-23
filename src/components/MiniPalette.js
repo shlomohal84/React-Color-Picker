@@ -1,22 +1,28 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import "flag-icons/css/flag-icons.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles/MiniPaletteStyles";
 
-class MiniPalette extends Component {
+class MiniPalette extends PureComponent {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   handleDelete(evt) {
     evt.stopPropagation();
     this.props.toggleDialog(this.props.id);
   }
+  handleClick() {
+    this.props.goToPalette(this.props.id);
+  }
+
   render() {
-    const { classes, paletteName, emoji, isWindowsEmoji, colors, handleClick } =
-      this.props;
+    const { classes, paletteName, emoji, isWindowsEmoji, colors } = this.props;
+
+    console.log("RENDERING", paletteName);
 
     const miniColorBoxes = colors.map((color) => (
       <div
@@ -26,7 +32,7 @@ class MiniPalette extends Component {
       />
     ));
     return (
-      <div className={classes.root} onClick={handleClick}>
+      <div className={classes.root} onClick={this.handleClick}>
         <DeleteIcon
           className={classes.deleteIcon}
           style={{ transition: "all 0.3s ease-in-out" }}
