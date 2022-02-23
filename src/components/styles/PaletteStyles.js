@@ -3,7 +3,7 @@ import sizes from "./sizes";
 const PaletteStyles = {
   Palette: {
     height: "100vh",
-    overflow: "auto",
+    overflow: "hidden",
     flexDirection: "column",
   },
   colors: {

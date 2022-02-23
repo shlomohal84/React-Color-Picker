@@ -19,7 +19,6 @@ const PaletteListStyles = {
     backgroundColor: "#394BAD",
     backgroundImage: `url(${bg})`,
     /* background by SVGBackgrounds.com */
-    overFlow: "scroll",
     paddingBottom: "3rem",
   },
   heading: {
@@ -32,8 +31,9 @@ const PaletteListStyles = {
     flexDirection: "column",
     flexWrap: "wrap",
     [sizes.down("xl")]: {
-      width: "80%",
+      width: "70%",
     },
+
     [sizes.down("xs")]: {
       width: "75%",
     },

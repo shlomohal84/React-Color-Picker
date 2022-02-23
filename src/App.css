@@ -10,10 +10,3 @@ body {
   /* overflow: hidden; */
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.page {
-  height: 100vh;
-  position: fixed;
-  width: 100%;
-  overflow: auto;
-}
