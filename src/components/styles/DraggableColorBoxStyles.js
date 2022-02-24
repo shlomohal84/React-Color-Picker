@@ -37,7 +37,6 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-end",
-    color: "rgba(0,0,0,0.5)",
     color: (props) =>
       chroma(props.color).luminance() <= 0.08
         ? "rgba(255,255,255,0.8)"
