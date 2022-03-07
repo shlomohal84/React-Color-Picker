@@ -1,57 +1,54 @@
-import React, { PureComponent } from "react";
+import { memo } from "react";
 import { withStyles } from "@material-ui/styles";
-import "flag-icons/css/flag-icons.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 
+import "flag-icons/css/flag-icons.css";
 import styles from "./styles/MiniPaletteStyles";
 
-class MiniPalette extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleDelete(evt) {
+const MiniPalette = ({
+  classes,
+  paletteName,
+  emoji,
+  isWindowsEmoji,
+  colors,
+  id,
+  toggleDialog,
+  goToPalette,
+}) => {
+  function handleDelete(evt) {
     evt.stopPropagation();
-    this.props.toggleDialog(this.props.id);
+    toggleDialog(id);
   }
-  handleClick() {
-    this.props.goToPalette(this.props.id);
+  function handleClick() {
+    goToPalette(id);
   }
-
-  render() {
-    const { classes, paletteName, emoji, isWindowsEmoji, colors } = this.props;
-
-    const miniColorBoxes = colors.map((color) => (
-      <div
-        className={classes.miniColor}
-        style={{ backgroundColor: color.color }}
-        key={color.name}
+  const miniColorBoxes = colors.map((color) => (
+    <div
+      className={classes.miniColor}
+      style={{ backgroundColor: color.color }}
+      key={color.name}
+    />
+  ));
+  return (
+    <div className={classes.root} onClick={handleClick}>
+      <DeleteIcon
+        className={classes.deleteIcon}
+        style={{ transition: "all 0.3s ease-in-out" }}
+        onClick={handleDelete}
       />
-    ));
-    return (
-      <div className={classes.root} onClick={this.handleClick}>
-        <DeleteIcon
-          className={classes.deleteIcon}
-          style={{ transition: "all 0.3s ease-in-out" }}
-          onClick={this.handleDelete}
-        />
-        <div className={classes.colors}>{miniColorBoxes}</div>
-        <h5 className={classes.title}>
-          {paletteName}
-          {isWindowsEmoji ? (
-            <span className={classes.emoji}>{emoji}</span>
-          ) : (
-            <span
-              className={`${classes.emoji} fi fi-${String(
-                emoji
-              ).toLowerCase()}`}
-            ></span>
-          )}
-        </h5>
-      </div>
-    );
-  }
-}
+      <div className={classes.colors}>{miniColorBoxes}</div>
+      <h5 className={classes.title}>
+        {paletteName}
+        {isWindowsEmoji ? (
+          <span className={classes.emoji}>{emoji}</span>
+        ) : (
+          <span
+            className={`${classes.emoji} fi fi-${String(emoji).toLowerCase()}`}
+          ></span>
+        )}
+      </h5>
+    </div>
+  );
+};
 
-export default withStyles(styles)(MiniPalette);
+export default withStyles(styles)(memo(MiniPalette));

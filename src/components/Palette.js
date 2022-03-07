@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import { withStyles } from "@material-ui/styles";
 
 import Navbar from "./Navbar";
@@ -8,52 +8,49 @@ import PaletteFooter from "./PaletteFooter";
 import "flag-icons/css/flag-icons.css";
 import styles from "./styles/PaletteStyles";
 
-class Palette extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { level: 500, format: "hex" };
-    this.changeLevel = this.changeLevel.bind(this);
-    this.changeFormat = this.changeFormat.bind(this);
+const Palette = ({
+  classes,
+  palette,
+  paletteName,
+  emoji,
+  isWindowsEmoji,
+  id,
+}) => {
+  const [level, setLevel] = useState(500);
+  const [format, setFormat] = useState("hex");
+  function changeLevel(level) {
+    setLevel(level);
   }
-  changeLevel(level) {
-    this.setState({ level });
+  function changeFormat(val) {
+    setFormat(val);
   }
-  changeFormat(val) {
-    this.setState({ format: val });
-  }
-  render() {
-    const { colors, paletteName, emoji, isWindowsEmoji, id } =
-      this.props.palette;
-    const { classes } = this.props;
-    const { level, format } = this.state;
 
-    const colorBoxes = colors[level].map((color) => (
-      <ColorBox
-        key={color.id}
-        background={color[format]}
-        name={color.name}
-        changeLevel={this.changeLevel}
-        moreUrl={`/palette/${id}/${color.id}`}
-        showingFullPalette={true}
+  const colorBoxes = palette.colors[level].map((color) => (
+    <ColorBox
+      key={color.id}
+      background={color[format]}
+      name={color.name}
+      changeLevel={changeLevel}
+      moreUrl={`/palette/${palette.id}/${color.id}`}
+      showingFullPalette={true}
+    />
+  ));
+
+  return (
+    <div className={classes.Palette}>
+      <Navbar
+        level={level}
+        changeLevel={changeLevel}
+        handleChange={changeFormat}
+        showingAllColors={true}
       />
-    ));
-
-    return (
-      <div className={classes.Palette}>
-        <Navbar
-          level={level}
-          changeLevel={this.changeLevel}
-          handleChange={this.changeFormat}
-          showingAllColors={true}
-        />
-        <div className={classes.colors}>{colorBoxes}</div>
-        <PaletteFooter
-          paletteName={paletteName}
-          emoji={emoji}
-          isWindowsEmoji={isWindowsEmoji}
-        />
-      </div>
-    );
-  }
-}
+      <div className={classes.colors}>{colorBoxes}</div>
+      <PaletteFooter
+        paletteName={paletteName}
+        emoji={emoji}
+        isWindowsEmoji={isWindowsEmoji}
+      />
+    </div>
+  );
+};
 export default withStyles(styles)(Palette);
