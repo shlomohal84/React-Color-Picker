@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { styled, Button } from "@mui/material";
 import { ChromePicker } from "react-color";
-import Button from "@material-ui/core/Button";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
 import styles from "./styles/ColorPickerFormStyles";
@@ -79,4 +78,4 @@ const ColorPickerForm = ({ paletteIsFull, colors, addNewColor, classes }) => {
   );
 };
 
-export default withStyles(styles)(ColorPickerForm);
+export default styled(styles)(ColorPickerForm);

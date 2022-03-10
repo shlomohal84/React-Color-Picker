@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { withStyles } from "@material-ui/styles";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import Dialog from "@material-ui/core/Dialog";
-import Avatar from "@material-ui/core/Avatar";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemText from "@material-ui/core/ListItemText";
-import CheckIcon from "@material-ui/icons/Check";
-import CloseIcon from "@material-ui/icons/Close";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import blue from "@material-ui/core/colors/blue";
-import red from "@material-ui/core/colors/red";
+import {
+  styled,
+  Dialog,
+  Avatar,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  DialogTitle,
+} from "@mui/material";
+import { Check as CheckIcon, Cancel as CloseIcon } from "@mui/icons-material";
+import { blue, red } from "@mui/material/colors";
 
 import MiniPalette from "./MiniPalette";
 
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styles from "./styles/PaletteListStyles";
 
 const PaletteList = ({ palettes, classes, deletePalette, history }) => {
@@ -84,4 +84,4 @@ const PaletteList = ({ palettes, classes, deletePalette, history }) => {
   );
 };
 
-export default withStyles(styles)(PaletteList);
+export default styled(styles)(PaletteList);

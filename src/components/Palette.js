@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { withStyles } from "@material-ui/styles";
 import { useParams } from "react-router-dom";
+import { styled } from "@mui/material";
+
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
@@ -47,4 +48,4 @@ const Palette = ({ classes, palette, paletteName, emoji, isWindowsEmoji }) => {
     </div>
   );
 };
-export default withStyles(styles)(Palette);
+export default styled(styles)(Palette);

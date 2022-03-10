@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/styles";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
+import { styled, Select, MenuItem, Snackbar, IconButton } from "@mui/material";
+import { Cancel as CancelIcon } from "@mui/icons-material";
 import Slider from "rc-slider";
-import Snackbar from "@material-ui/core/Snackbar";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
 
 import "rc-slider/assets/index.css";
 import styles from "./styles/NavbarStyles";
@@ -74,7 +70,7 @@ const Navbar = ({
             key="close"
             aria-label="close"
           >
-            <CloseIcon />
+            <CancelIcon />
           </IconButton>,
         ]}
       />
@@ -82,4 +78,4 @@ const Navbar = ({
   );
 };
 
-export default withStyles(styles)(Navbar);
+export default styled(styles)(Navbar);

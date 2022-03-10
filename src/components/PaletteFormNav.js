@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import {
+  styled,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
-import Button from "@material-ui/core/Button";
+
+import { AddToPhotos as AddToPhotosIcon } from "@mui/icons-material";
 
 import PaletteMetaForm from "./PaletteMetaForm";
 
@@ -83,4 +86,4 @@ const PaletteFormNav = ({
   );
 };
 
-export default withStyles(styles, { withTheme: true })(PaletteFormNav);
+export default styled(styles, { withTheme: true })(PaletteFormNav);

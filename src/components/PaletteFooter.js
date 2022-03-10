@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles } from "@material-ui/styles";
+import { styled } from "@mui/material";
 
 import styles from "./styles/PaletteFooterStyles";
 
@@ -19,4 +19,4 @@ function PaletteFooter(props) {
     </footer>
   );
 }
-export default withStyles(styles)(PaletteFooter);
+export default styled(styles)(PaletteFooter);

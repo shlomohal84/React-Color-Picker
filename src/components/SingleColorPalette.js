@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { withStyles } from "@material-ui/styles";
+import { styled } from "@mui/material";
 
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
@@ -56,4 +56,4 @@ const SingleColorPalette = ({ palette, classes }) => {
   );
 };
 
-export default withStyles(styles)(SingleColorPalette);
+export default styled(styles)(SingleColorPalette);

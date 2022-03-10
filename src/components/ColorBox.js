@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { withStyles } from "@material-ui/styles";
+import { styled } from "@mui/material";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
@@ -54,4 +54,4 @@ const ColorBox = ({
   );
 };
 
-export default withStyles(styles)(ColorBox);
+export default styled(styles)(ColorBox);

@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { withStyles } from "@material-ui/styles";
-import DeleteIcon from "@material-ui/icons/Delete";
+import { styled } from "@mui/material";
+import { Delete as DeleteIcon } from "@mui/icons-material";
 
 import "flag-icons/css/flag-icons.css";
 import styles from "./styles/MiniPaletteStyles";
@@ -51,4 +51,4 @@ const MiniPalette = ({
   );
 };
 
-export default withStyles(styles)(memo(MiniPalette));
+export default styled(styles)(memo(MiniPalette));
