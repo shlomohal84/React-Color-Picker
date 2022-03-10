@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Dialog from "@material-ui/core/Dialog";
@@ -22,8 +22,9 @@ const PaletteList = ({ palettes, classes, deletePalette, history }) => {
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [deleteingID, setDeletingID] = useState("");
 
+  const navigate = useNavigate();
   function goToPalette(id) {
-    history.push(`/palette/${id}`);
+    navigate(`/palette/${id}`);
   }
 
   function toggleDialog(id) {

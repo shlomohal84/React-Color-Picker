@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { withStyles } from "@material-ui/styles";
-
+import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
@@ -8,30 +8,24 @@ import PaletteFooter from "./PaletteFooter";
 import "flag-icons/css/flag-icons.css";
 import styles from "./styles/PaletteStyles";
 
-const Palette = ({
-  classes,
-  palette,
-  paletteName,
-  emoji,
-  isWindowsEmoji,
-  id,
-}) => {
+const Palette = ({ classes, palette, paletteName, emoji, isWindowsEmoji }) => {
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
+
   function changeLevel(level) {
     setLevel(level);
   }
   function changeFormat(val) {
     setFormat(val);
   }
-
-  const colorBoxes = palette.colors[level].map((color) => (
+  const { paletteID } = useParams();
+  const colorBoxes = palette(paletteID).colors[level].map((color) => (
     <ColorBox
       key={color.id}
       background={color[format]}
       name={color.name}
       changeLevel={changeLevel}
-      moreUrl={`/palette/${palette.id}/${color.id}`}
+      moreUrl={`/palette/${paletteID}/${color.id}`}
       showingFullPalette={true}
     />
   ));

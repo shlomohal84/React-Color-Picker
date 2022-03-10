@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 
 import Navbar from "./Navbar";
@@ -8,17 +8,19 @@ import PaletteFooter from "./PaletteFooter";
 
 import styles from "./styles/PaletteStyles";
 
-const SingleColorPalette = ({ palette, colorID, classes }) => {
-  const { paletteName, emoji, isWindowsEmoji, id } = palette;
+const SingleColorPalette = ({ palette, classes }) => {
+  const { paletteName, emoji, isWindowsEmoji } = palette;
+
   const [format, setFormat] = useState("hex");
 
+  const { colorID, paletteID } = useParams();
   function changeFormat(val) {
     setFormat(val);
   }
 
   function gatherShades(palette, colorToFilterBy) {
     let shades = [];
-    let allColors = palette.colors;
+    let allColors = palette(paletteID).colors;
     for (let key in allColors) {
       shades = shades.concat(
         allColors[key].filter((color) => color.id === colorToFilterBy)
@@ -42,7 +44,7 @@ const SingleColorPalette = ({ palette, colorID, classes }) => {
       <div className={classes.colors}>
         {colorBoxes}
         <div className={classes.goBack}>
-          <Link to={`/palette/${id}`}>Go Back</Link>
+          <Link to={`/palette/${paletteID}`}>Go Back</Link>
         </div>
       </div>
       <PaletteFooter

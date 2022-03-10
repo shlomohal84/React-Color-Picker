@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import Drawer from "@material-ui/core/Drawer";
@@ -25,6 +26,7 @@ const NewPaletteForm = ({
 }) => {
   const [open, setOpen] = useState(true);
   const [colors, setColors] = useState(seedColors[0].colors);
+  const navigate = useNavigate();
   function handleDrawerOpen() {
     setOpen(true);
   }
@@ -45,7 +47,7 @@ const NewPaletteForm = ({
     newPalette.colors = colors;
     newPalette.isWindowsEmoji = true;
     savePalette(newPalette);
-    history.push("/");
+    navigate("/");
   }
   function removeColor(colorName) {
     setColors(colors.filter((color) => color.name !== colorName));
