@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { styled } from "@mui/material";
 
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
 
 import styles from "./styles/PaletteStyles";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
 
-const SingleColorPalette = ({ palette, classes }) => {
+const SingleColorPalette = ({ palette }) => {
+  const classes = useStyles();
+
   const { paletteName, emoji, isWindowsEmoji } = palette;
 
   const [format, setFormat] = useState("hex");
@@ -56,4 +59,4 @@ const SingleColorPalette = ({ palette, classes }) => {
   );
 };
 
-export default styled(styles)(SingleColorPalette);
+export default SingleColorPalette;

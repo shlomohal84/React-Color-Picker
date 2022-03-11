@@ -1,6 +1,10 @@
 import { DRAWER_WIDTH } from "../../constants";
+import { createTheme } from "@mui/material/styles";
+
 const drawerWidth = DRAWER_WIDTH;
-const styles = (theme) => ({
+const theme = createTheme();
+
+const NewPaletteFormStyles = {
   root: {
     display: "flex",
   },
@@ -53,6 +57,6 @@ const styles = (theme) => ({
   },
   buttons: { width: "100%" },
   button: { width: "50%" },
-});
+};
 
-export default styles;
+export default NewPaletteFormStyles;

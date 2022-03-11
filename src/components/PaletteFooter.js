@@ -1,11 +1,13 @@
 import React from "react";
-import { styled } from "@mui/material";
 
 import styles from "./styles/PaletteFooterStyles";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
 
 function PaletteFooter(props) {
   const { paletteName, emoji, isWindowsEmoji } = props;
-  const { classes } = props;
+  const classes = useStyles();
+
   return (
     <footer className={classes.PaletteFooter}>
       {paletteName}
@@ -19,4 +21,4 @@ function PaletteFooter(props) {
     </footer>
   );
 }
-export default styled(styles)(PaletteFooter);
+export default PaletteFooter;

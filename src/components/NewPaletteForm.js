@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  styled,
-  Drawer,
-  Typography,
-  Divider,
-  IconButton,
-  Button,
-} from "@mui/material";
+import { Drawer, Typography, Divider, IconButton, Button } from "@mui/material";
 import classNames from "classnames";
 import { ChevronLeft as ChevronLeftIcon } from "@mui/icons-material";
 import { arrayMove } from "react-sortable-hoc";
@@ -16,16 +9,14 @@ import DraggableColorList from "./DraggableColorList";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 
-import styles from "./styles/NewPaletteFormStyles";
 import seedColors from "../seedColors";
+import styles from "./styles/NewPaletteFormStyles";
+import { makeStyles } from "@mui/styles";
 
-const NewPaletteForm = ({
-  maxColors = 20,
-  classes,
-  palettes,
-  savePalette,
-  history,
-}) => {
+const NewPaletteForm = (maxColors = 20, palettes, savePalette) => {
+  const useStyles = makeStyles(() => styles);
+  const classes = useStyles();
+
   const [open, setOpen] = useState(true);
   const [colors, setColors] = useState(seedColors[0].colors);
   const navigate = useNavigate();
@@ -38,12 +29,8 @@ const NewPaletteForm = ({
 
   function addNewColor(newColor) {
     setColors([...colors, newColor]);
-    // setColors([...inputs, (newColorName = "")]);
   }
 
-  // function handleChange(evt) {
-  //   setColors([...colors, { [evt.target.name]: evt.target.value }]);
-  // }
   function handleSubmit(newPalette) {
     newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
     newPalette.colors = colors;
@@ -150,4 +137,4 @@ const NewPaletteForm = ({
     </div>
   );
 };
-export default styled(styles, { withTheme: true })(NewPaletteForm);
+export default NewPaletteForm;

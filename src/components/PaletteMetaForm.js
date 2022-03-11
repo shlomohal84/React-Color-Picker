@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 
 import { Picker } from "emoji-mart";
-
 import "emoji-mart/css/emoji-mart.css";
 
 const PaletteMetaForm = ({ palettes, handleSubmit, toggleShowForm }) => {

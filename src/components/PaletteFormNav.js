@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  styled,
   CssBaseline,
   AppBar,
   Toolbar,
@@ -16,14 +15,12 @@ import { AddToPhotos as AddToPhotosIcon } from "@mui/icons-material";
 import PaletteMetaForm from "./PaletteMetaForm";
 
 import styles from "./styles/PaletteFormNavStyles";
-const PaletteFormNav = ({
-  classes,
-  open,
-  palettes,
-  handleSubmit,
-  handleDrawerOpen,
-}) => {
-  // const [newPaletteName, setNewPaletteName] = useState("");
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
+
+const PaletteFormNav = ({ open, palettes, handleSubmit, handleDrawerOpen }) => {
+  const classes = useStyles();
+
   const [formShowing, setFormShowing] = useState(false);
 
   function toggleShowForm() {
@@ -86,4 +83,4 @@ const PaletteFormNav = ({
   );
 };
 
-export default styled(styles, { withTheme: true })(PaletteFormNav);
+export default PaletteFormNav;

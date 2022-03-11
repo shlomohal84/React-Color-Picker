@@ -1,10 +1,10 @@
 import chroma from "chroma-js";
 import sizes from "./sizes";
 
-const ColorBoxStyles = {
+const ColorBoxStyles = (props) => ({
   ColorBox: {
     width: "20%",
-    height: (props) => (props.showingFullPalette ? "25%" : "50%"),
+    height: props.showingFullPalette ? "25%" : "50%",
     margin: " -3.5px auto",
     display: "inline-block",
     position: "relative",
@@ -14,27 +14,25 @@ const ColorBoxStyles = {
     },
     [sizes.down("lg")]: {
       width: "25%",
-      height: (props) => (props.showingFullPalette ? "20%" : "33.3333%"),
+      height: props.showingFullPalette ? "20%" : "33.3333%",
     },
     [sizes.down("md")]: {
       width: "50%",
-      height: (props) => (props.showingFullPalette ? "10%" : "20%"),
+      height: props.showingFullPalette ? "10%" : "20%",
     },
     [sizes.down("xs")]: {
       width: "100%",
-      height: (props) => (props.showingFullPalette ? "5%" : "10%"),
+      height: props.showingFullPalette ? "5%" : "10%",
     },
   },
   copyText: {
-    color: (props) =>
-      chroma(props.background).luminance() >= 0.7 ? "black" : "white",
+    color: chroma(props.background).luminance() >= 0.7 ? "black" : "white",
   },
   colorName: {
-    color: (props) =>
-      chroma(props.background).luminance() <= 0.08 ? "white" : "black",
+    color: chroma(props.background).luminance() <= 0.08 ? "white" : "black",
   },
   seeMore: {
-    color: (props) =>
+    color:
       chroma(props.background).luminance() >= 0.7
         ? "rgba(0, 0, 0, 0.5)"
         : "white",
@@ -50,7 +48,7 @@ const ColorBoxStyles = {
     textTransform: "uppercase",
   },
   copyButton: {
-    color: (props) =>
+    color:
       chroma(props.background).luminance() >= 0.7
         ? "rgba(0, 0, 0, 0.5)"
         : "white",
@@ -137,5 +135,5 @@ const ColorBoxStyles = {
     transition: " all 0.4s ease-in-out",
     transitionDelay: "0.3s",
   },
-};
+});
 export default ColorBoxStyles;

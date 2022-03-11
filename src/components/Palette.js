@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { styled } from "@mui/material";
 
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
@@ -8,8 +7,12 @@ import PaletteFooter from "./PaletteFooter";
 
 import "flag-icons/css/flag-icons.css";
 import styles from "./styles/PaletteStyles";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
 
-const Palette = ({ classes, palette, paletteName, emoji, isWindowsEmoji }) => {
+const Palette = ({ palette, paletteName, emoji, isWindowsEmoji }) => {
+  const classes = useStyles();
+
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
 
@@ -23,6 +26,7 @@ const Palette = ({ classes, palette, paletteName, emoji, isWindowsEmoji }) => {
   const colorBoxes = palette(paletteID).colors[level].map((color) => (
     <ColorBox
       key={color.id}
+      colorID={color.id}
       background={color[format]}
       name={color.name}
       changeLevel={changeLevel}
@@ -48,4 +52,4 @@ const Palette = ({ classes, palette, paletteName, emoji, isWindowsEmoji }) => {
     </div>
   );
 };
-export default styled(styles)(Palette);
+export default Palette;

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  styled,
   Dialog,
   Avatar,
   List,
@@ -10,15 +9,18 @@ import {
   ListItemText,
   DialogTitle,
 } from "@mui/material";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Check as CheckIcon, Cancel as CloseIcon } from "@mui/icons-material";
 import { blue, red } from "@mui/material/colors";
 
 import MiniPalette from "./MiniPalette";
 
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styles from "./styles/PaletteListStyles";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
 
-const PaletteList = ({ palettes, classes, deletePalette, history }) => {
+const PaletteList = ({ palettes, deletePalette }) => {
+  const classes = useStyles();
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [deleteingID, setDeletingID] = useState("");
 
@@ -84,4 +86,4 @@ const PaletteList = ({ palettes, classes, deletePalette, history }) => {
   );
 };
 
-export default styled(styles)(PaletteList);
+export default PaletteList;

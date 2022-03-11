@@ -1,6 +1,6 @@
 import sizes from "./sizes";
 import chroma from "chroma-js";
-const styles = {
+const styles = (props) => ({
   root: {
     width: "20%",
     height: "25%",
@@ -37,7 +37,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-end",
-    color: (props) =>
+    color:
       chroma(props.color).luminance() <= 0.08
         ? "rgba(255,255,255,0.8)"
         : "rgba(0,0,0,0.6)",
@@ -49,6 +49,6 @@ const styles = {
     maxWidth: "80%",
     overflow: "hidden",
   },
-};
+});
 
 export default styles;

@@ -1,19 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { styled, Select, MenuItem, Snackbar, IconButton } from "@mui/material";
+import { Select, MenuItem, Snackbar, IconButton } from "@mui/material";
 import { Cancel as CancelIcon } from "@mui/icons-material";
 import Slider from "rc-slider";
 
 import "rc-slider/assets/index.css";
 import styles from "./styles/NavbarStyles";
-
-const Navbar = ({
-  handleChange,
-  level,
-  changeLevel,
-  showingAllColors,
-  classes,
-}) => {
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
+const Navbar = ({ handleChange, level, changeLevel, showingAllColors }) => {
+  const classes = useStyles();
   const [format, setFormat] = useState("hex");
   const [open, setOpen] = useState(false);
 
@@ -78,4 +74,4 @@ const Navbar = ({
   );
 };
 
-export default styled(styles)(Navbar);
+export default Navbar;

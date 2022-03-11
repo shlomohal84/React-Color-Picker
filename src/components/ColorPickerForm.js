@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
-import { styled, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
 import styles from "./styles/ColorPickerFormStyles";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
 
-const ColorPickerForm = ({ paletteIsFull, colors, addNewColor, classes }) => {
+const ColorPickerForm = ({ paletteIsFull, colors, addNewColor }) => {
+  const classes = useStyles();
   const [input, setInput] = useState({
     currentColor: "teal",
     newColorName: "",
@@ -78,4 +81,4 @@ const ColorPickerForm = ({ paletteIsFull, colors, addNewColor, classes }) => {
   );
 };
 
-export default styled(styles)(ColorPickerForm);
+export default ColorPickerForm;

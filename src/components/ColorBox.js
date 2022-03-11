@@ -1,25 +1,21 @@
 import { useState } from "react";
-import { styled } from "@mui/material";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 import styles from "./styles/ColorBoxStyles";
+import { makeStyles } from "@mui/styles";
 
-const ColorBox = ({
-  name,
-  background,
-  moreUrl,
-  showingFullPalette,
-  classes,
-}) => {
+const ColorBox = (props) => {
+  const { name, background, moreUrl, showingFullPalette } = props;
+  const useStyles = makeStyles((theme) => styles(props));
+  const classes = useStyles();
   const [copied, setCopied] = useState(false);
 
   function changeCopyState() {
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   }
-
   return (
     <CopyToClipboard text={background} onCopy={changeCopyState}>
       <div className={classes.ColorBox} style={{ background }}>
@@ -54,4 +50,4 @@ const ColorBox = ({
   );
 };
 
-export default styled(styles)(ColorBox);
+export default ColorBox;

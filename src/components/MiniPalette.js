@@ -1,12 +1,11 @@
 import { memo } from "react";
-import { styled } from "@mui/material";
 import { Delete as DeleteIcon } from "@mui/icons-material";
 
 import "flag-icons/css/flag-icons.css";
 import styles from "./styles/MiniPaletteStyles";
-
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => styles);
 const MiniPalette = ({
-  classes,
   paletteName,
   emoji,
   isWindowsEmoji,
@@ -15,6 +14,7 @@ const MiniPalette = ({
   toggleDialog,
   goToPalette,
 }) => {
+  const classes = useStyles();
   function handleDelete(evt) {
     evt.stopPropagation();
     toggleDialog(id);
@@ -51,4 +51,4 @@ const MiniPalette = ({
   );
 };
 
-export default styled(styles)(memo(MiniPalette));
+export default memo(MiniPalette);
