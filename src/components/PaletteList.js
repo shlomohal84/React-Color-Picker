@@ -74,7 +74,7 @@ const PaletteList = ({ palettes, deletePalette }) => {
           </ListItem>
           <ListItem button onClick={toggleDialog}>
             <ListItemAvatar>
-              <Avatar style={{ backgroundColor: red[100], color: red[600] }}>
+              <Avatar style={{ backgroundColor: red[100], color: red[500] }}>
                 <CloseIcon />
               </Avatar>
             </ListItemAvatar>

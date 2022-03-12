@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@mui/material";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -16,8 +16,11 @@ const ColorPickerForm = ({ paletteIsFull, colors, addNewColor }) => {
   const { currentColor, newColorName } = input;
 
   useEffect(() => {
-    ValidatorForm.addValidationRule("isColorNameUnique", (value) =>
-      colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
+    ValidatorForm.addValidationRule(
+      "isColorNameUnique",
+
+      (value) =>
+        colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
     );
     ValidatorForm.addValidationRule("isColorUnique", (value) =>
       colors.every(({ color }) => color !== currentColor)
@@ -47,9 +50,15 @@ const ColorPickerForm = ({ paletteIsFull, colors, addNewColor }) => {
         onChangeComplete={updateCurrentColor}
         disableAlpha={true}
         className={classes.picker}
+        ref={useRef("form")}
       />
-      <ValidatorForm onSubmit={handleSubmit} instantValidate={false}>
+      <ValidatorForm
+        ref={useRef("form")}
+        onSubmit={handleSubmit}
+        instantValidate={false}
+      >
         <TextValidator
+          ref={useRef("form")}
           placeholder="Color Name"
           margin="normal"
           variant="filled"
