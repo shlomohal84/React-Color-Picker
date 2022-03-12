@@ -19,12 +19,12 @@ import seedColors from "./seedColors";
 
 import "./components/styles/Page.css";
 import "./App.css";
+
 const App = () => {
   const theme = createTheme();
   const [palettes, setPalettes] = useState(
     JSON.parse(window.localStorage.getItem("palettes")) || seedColors
   );
-
   useEffect(() => {
     window.localStorage.setItem("palettes", JSON.stringify(palettes));
   }, [palettes]);
@@ -57,7 +57,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <TransitionGroup>
-        <CSSTransition classNames="page" timeout={500}>
+        <CSSTransition classNames="page" timeout={{ enter: 500, exit: 500 }}>
           <Router>
             <Routes>
               <Route

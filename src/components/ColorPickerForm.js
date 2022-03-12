@@ -41,7 +41,7 @@ const ColorPickerForm = ({ paletteIsFull, colors, addNewColor }) => {
     addNewColor(newColor);
   }
   return (
-    <div>
+    <div className={classes.root}>
       <ChromePicker
         color={currentColor}
         onChangeComplete={updateCurrentColor}
@@ -65,6 +65,10 @@ const ColorPickerForm = ({ paletteIsFull, colors, addNewColor }) => {
           ]}
         />
         <Button
+          sx={{
+            fontSize: "2rem",
+            height: "4rem",
+          }}
           className={classes.addColor}
           variant="contained"
           color="primary"

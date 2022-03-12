@@ -8,12 +8,10 @@ import {
   Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import classNames from "classnames";
-
 import { AddToPhotos as AddToPhotosIcon } from "@mui/icons-material";
 
 import PaletteMetaForm from "./PaletteMetaForm";
-
+import classNames from "classnames";
 import styles from "./styles/PaletteFormNavStyles";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => styles);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import {
   Button,
@@ -14,11 +14,15 @@ import "emoji-mart/css/emoji-mart.css";
 
 const PaletteMetaForm = ({ palettes, handleSubmit, toggleShowForm }) => {
   useEffect(() => {
-    ValidatorForm.addValidationRule("isPaletteNameUnique", (value) =>
-      palettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-      )
-    );
+    ValidatorForm.addValidationRule("isPaletteNameUnique", (value) => {
+      for (let i = 0; i < palettes.length; i++) {
+        // ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase();
+        if (palettes[i].paletteName.toLowerCase() !== value.toLowerCase()) {
+          return true;
+        }
+        return false;
+      }
+    });
   });
 
   const [stage, setStage] = useState("form");
@@ -57,7 +61,7 @@ const PaletteMetaForm = ({ palettes, handleSubmit, toggleShowForm }) => {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <ValidatorForm onSubmit={showEmojiPicker}>
+        <ValidatorForm onSubmit={showEmojiPicker} ref={useRef("form")}>
           <DialogTitle id="form-dialog-title">
             Choose A Palette Name
           </DialogTitle>
@@ -66,6 +70,7 @@ const PaletteMetaForm = ({ palettes, handleSubmit, toggleShowForm }) => {
               Enter your new palette name. Make sure it's unique!
             </DialogContentText>
             <TextValidator
+              type="text"
               fullWidth
               margin="normal"
               label="Palette Name"

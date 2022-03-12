@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => styles);
 
 const Palette = ({ palette, paletteName, emoji, isWindowsEmoji }) => {
   const classes = useStyles();
-
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
 
@@ -45,9 +44,9 @@ const Palette = ({ palette, paletteName, emoji, isWindowsEmoji }) => {
       />
       <div className={classes.colors}>{colorBoxes}</div>
       <PaletteFooter
-        paletteName={paletteName}
-        emoji={emoji}
-        isWindowsEmoji={isWindowsEmoji}
+        paletteName={palette(paletteID).paletteName}
+        emoji={palette(paletteID).emoji}
+        isWindowsEmoji={palette(paletteID).isWindowsEmoji}
       />
     </div>
   );

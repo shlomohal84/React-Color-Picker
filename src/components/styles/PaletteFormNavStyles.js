@@ -1,8 +1,10 @@
 import { DRAWER_WIDTH } from "../../constants";
 import sizes from "./sizes";
+import { createTheme } from "@mui/material/styles";
+const theme = createTheme();
 const drawerWidth = DRAWER_WIDTH;
 
-const styles = (theme) => ({
+const styles = {
   root: {
     display: "flex",
   },
@@ -14,7 +16,7 @@ const styles = (theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    flexDirection: "row",
+    flexDirection: "row !important",
     justifyContent: "space-between",
     alignItems: "center",
     height: "64px",
@@ -49,6 +51,6 @@ const styles = (theme) => ({
       padding: "0.3rem",
     },
   },
-});
+};
 
 export default styles;

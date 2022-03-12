@@ -3,23 +3,23 @@ import { useNavigate } from "react-router-dom";
 import { Drawer, Typography, Divider, IconButton, Button } from "@mui/material";
 import classNames from "classnames";
 import { ChevronLeft as ChevronLeftIcon } from "@mui/icons-material";
-import { arrayMove } from "react-sortable-hoc";
-import DraggableColorList from "./DraggableColorList";
+import { arrayMoveImmutable as arrayMove } from "array-move";
 
+import DraggableColorList from "./DraggableColorList";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 
 import seedColors from "../seedColors";
 import styles from "./styles/NewPaletteFormStyles";
 import { makeStyles } from "@mui/styles";
-
-const NewPaletteForm = (maxColors = 20, palettes, savePalette) => {
+const maxColors = 20;
+const NewPaletteForm = ({ palettes, savePalette }) => {
   const useStyles = makeStyles(() => styles);
   const classes = useStyles();
 
+  const navigate = useNavigate();
   const [open, setOpen] = useState(true);
   const [colors, setColors] = useState(seedColors[0].colors);
-  const navigate = useNavigate();
   function handleDrawerOpen() {
     setOpen(true);
   }
@@ -64,8 +64,8 @@ const NewPaletteForm = (maxColors = 20, palettes, savePalette) => {
     }
     setColors([...colors, randomColor]);
   }
-
   const paletteIsFull = colors.length >= maxColors;
+
   return (
     <div className={classes.root}>
       <PaletteFormNav
