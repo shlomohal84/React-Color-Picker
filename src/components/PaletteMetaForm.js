@@ -70,7 +70,6 @@ const PaletteMetaForm = ({ palettes, handleSubmit, toggleShowForm }) => {
               Enter your new palette name. Make sure it's unique!
             </DialogContentText>
             <TextValidator
-              ref={useRef("form")}
               type="text"
               fullWidth
               margin="normal"

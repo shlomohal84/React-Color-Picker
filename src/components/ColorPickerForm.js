@@ -58,7 +58,6 @@ const ColorPickerForm = ({ paletteIsFull, colors, addNewColor }) => {
         instantValidate={false}
       >
         <TextValidator
-          ref={useRef("form")}
           placeholder="Color Name"
           margin="normal"
           variant="filled"

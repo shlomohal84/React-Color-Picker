@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Drawer, Typography, Divider, IconButton, Button } from "@mui/material";
 import classNames from "classnames";
@@ -14,7 +14,6 @@ import styles from "./styles/NewPaletteFormStyles";
 import { makeStyles } from "@mui/styles";
 const maxColors = 20;
 const NewPaletteForm = ({ palettes, savePalette }) => {
-  const ref = useRef("ref");
   const useStyles = makeStyles(() => styles);
   const classes = useStyles();
 
@@ -68,7 +67,7 @@ const NewPaletteForm = ({ palettes, savePalette }) => {
   const paletteIsFull = colors.length >= maxColors;
 
   return (
-    <div className={classes.root} ref={ref}>
+    <div className={classes.root}>
       <PaletteFormNav
         open={open}
         palettes={palettes}
@@ -128,7 +127,6 @@ const NewPaletteForm = ({ palettes, savePalette }) => {
       >
         <div className={classes.drawerHeader} />
         <DraggableColorList
-          ref={ref}
           colors={colors}
           removeColor={removeColor}
           axis="xy"
